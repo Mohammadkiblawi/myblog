@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Mail;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = Post::all();
+    return view('posts.index', ['posts' => $posts]);
 });
 Route::get('/hello/{name}', function ($name) {
     return view('hello', compact('name'));
